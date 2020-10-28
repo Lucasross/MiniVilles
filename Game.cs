@@ -38,8 +38,8 @@ namespace MiniVilles
         private void TurnOf(Player player, Player opponent)
         {
             int dieFace = die.Throw();
-            opponent.ApplyCardEffect(new List<Colors> { Colors.RED, Colors.BLUE }, dieFace);
-            player.ApplyCardEffect(new List<Colors> { Colors.GREEN, Colors.BLUE }, dieFace);
+            opponent.ApplyCardEffect(new List<Colors> { Colors.RED, Colors.BLUE }, dieFace, player);
+            player.ApplyCardEffect(new List<Colors> { Colors.GREEN, Colors.BLUE }, dieFace, opponent);
             player.BuyCard(piles);
         }
 
