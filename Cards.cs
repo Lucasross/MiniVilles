@@ -21,6 +21,6 @@ namespace MiniVilles
             this.givenCoin = givenCoin;
         }
 
-        public abstract int CardEffect();
+        public abstract int Effect();
     }
 }

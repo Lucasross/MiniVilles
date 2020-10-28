@@ -9,12 +9,9 @@ namespace MiniVilles
     class Piles
     {
         public List<Cards> Deck;
-        public Piles(List<Cards> ListCardsBuildingPiles)
+        public Piles()
         {
-           foreach(Cards card in ListCardsBuildingPiles)
-            {
-                Deck.Add(card);
-            }
+
         }
 
         public Cards PickCard()
