@@ -10,8 +10,7 @@ namespace MiniVilles
     {
         static void Main(string[] args)
         {
-            int game = 5;
-            Console.Write(game);
+            Game game = new Game();
         }
     }
 }
