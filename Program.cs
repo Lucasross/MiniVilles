@@ -12,6 +12,7 @@ namespace MiniVilles
         {
             int game = 5;
             Console.Write(game);
+            Console.Read();
         }
     }
 }

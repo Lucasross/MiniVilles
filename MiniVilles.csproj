@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5C117E21-F47A-4D66-9DF0-90E70EBAA55E}</ProjectGuid>
+    <ProjectGuid>{E32DA37C-E274-4541-B524-FB655820CAED}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>MiniVilles</RootNamespace>
     <AssemblyName>MiniVilles</AssemblyName>
