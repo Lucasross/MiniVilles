@@ -40,7 +40,7 @@ namespace MiniVilles
             int dieFace = die.Throw();
             opponent.ApplyCardEffect(new List<Colors> { Colors.RED, Colors.BLUE }, dieFace);
             player.ApplyCardEffect(new List<Colors> { Colors.GREEN, Colors.BLUE }, dieFace);
-            player.BuyCard();
+            player.BuyCard(piles);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace MiniVilles
         /// <param name="player"></param>
         private void DisplayWinner(Player player)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("And the winner is ... {0} !!! Congratulations !", player.Name);
         }
 
         /// <summary>
@@ -58,7 +58,14 @@ namespace MiniVilles
         /// <param name="player"></param>
         private Player GetWinner()
         {
-            throw new NotImplementedException();
+            if (playerA.Coins >= 20)
+            {
+                return playerA;
+            }
+            else
+            {
+                return playerB;
+            }
         }
 
         /// <summary>
@@ -67,7 +74,7 @@ namespace MiniVilles
         /// <returns>Vrai si la partie doit se terminer</returns>
         private bool EndGame()
         {
-            throw new NotImplementedException();    
+            return (playerA.Coins >= 20 || playerB.Coins >= 20);
         }
     }
 }

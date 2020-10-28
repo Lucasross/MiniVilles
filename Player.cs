@@ -32,13 +32,13 @@ namespace MiniVilles
 
         /// <summary>
         /// Gère la fonction des joueurs a acheter des cartes.
-        /// Si la carte est acheter alors on l'enleve du paquets pour la mettre dans la liste du joueur
-        /// sinon on la remets a l'index 0 de la piles
+        /// Si la carte est achetée alors on l'enleve du paquets pour la mettre dans la liste du joueur
+        /// sinon on la remets a l'index 0 de la pile
         /// </summary>
-        public abstract void BuyCard();
+        public abstract void BuyCard(Piles pile);
 
         /// <summary>
-        /// Renvoie le score du joueur
+        /// Renvoi le score du joueur
         /// </summary>
         /// <returns>Le score du joueur</returns>
         public int Score()
@@ -47,7 +47,7 @@ namespace MiniVilles
         }
 
         /// <summary>
-        /// Applique les effets des cartes qui on la couleurs et le numéro d'activation correspondant
+        /// Applique les effets des cartes qui ont la couleur et le numéro d'activation correspondant
         /// </summary>
         /// <param name="lists">Couleurs à activer</param>
         /// <param name="dieFace">Numéro d'activation</param>

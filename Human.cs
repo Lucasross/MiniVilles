@@ -13,12 +13,12 @@ namespace MiniVilles
         }
 
         /// <summary>
-        /// Affiche et demande dans la console au joueurs
+        /// Affiche et demande dans la console au joueur
         /// Et se base sur les instructions de la classe parent : Player
         /// </summary>
-        public override void BuyCard()
+        public override void BuyCard(Piles pile)
         {
-            throw new NotImplementedException();
+            Cards card = pile.PickCard();
         }
     }
 }

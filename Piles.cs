@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniVilles
 {
-    class Piles
+    public class Piles
     {
         public List<Cards> Deck;
         public Piles()
