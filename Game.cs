@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace MiniVilles
 {
-    class Game
+    public class Game
     {
+        private Die die;
+        private Piles piles;
+        private Player player;
+
+        public Game()
+        {
+            
+        }
     }
 }

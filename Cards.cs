@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniVilles
 {
-    class Cards
+    public abstract class Cards
     {
     }
 }
