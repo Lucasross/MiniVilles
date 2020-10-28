@@ -12,6 +12,10 @@ namespace MiniVilles
         {
         }
 
+        /// <summary>
+        /// Affiche et demande dans la console au joueurs
+        /// Et se base sur les instructions de la classe parent : Player
+        /// </summary>
         public override void BuyCard()
         {
             throw new NotImplementedException();

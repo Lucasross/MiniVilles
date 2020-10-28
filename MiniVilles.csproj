@@ -44,8 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards.cs" />
+    <Compile Include="Colors.cs" />
     <Compile Include="Die.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Human.cs" />
+    <Compile Include="IaRandom.cs" />
     <Compile Include="Piles.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

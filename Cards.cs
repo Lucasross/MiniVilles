@@ -20,7 +20,6 @@ namespace MiniVilles
             this.cardCost = cardCost;
             this.givenCoin = givenCoin;
         }
-
-        public abstract int Effect();
+        public abstract int CardEffect(Player player);
     }
 }
