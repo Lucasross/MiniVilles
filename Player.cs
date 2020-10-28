@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniVilles
 {
-    class Player
+    public class Player
     {
     }
 }

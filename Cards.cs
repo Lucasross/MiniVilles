@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace MiniVilles
 {
-    class Cards
+    public abstract class Cards
     {
+        protected int activationValue;
+        protected string color;
+        protected int cardCost;
+        protected int givenCoin;
+
+        public Cards(int activationValue, string color, int cardCost, int givenCoin)
+        {
+            this.activationValue = activationValue;
+            this.color = color;
+            this.cardCost = cardCost;
+            this.givenCoin = givenCoin;
+        }
+
+        public abstract int CardEffect();
     }
 }
