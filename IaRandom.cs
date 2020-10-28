@@ -18,7 +18,7 @@ namespace MiniVilles
         /// </summary>
         public override void BuyCard()
         {
-            throw new NotImplementedException();
+
         }
     }
 }

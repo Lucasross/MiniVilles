@@ -22,7 +22,7 @@ namespace MiniVilles
         }
         public void Shuffle()
         {
-            // pour trier chaque carte grace a un chaine de character Guid.NewGuid ...
+            // pour trier chaque carte grace a une chaine de character Guid.NewGuid ...
             Deck = Deck.OrderBy(c => Guid.NewGuid()).ToList(); 
         }
 

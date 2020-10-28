@@ -10,14 +10,14 @@ namespace MiniVilles
     {
         private int _coins;
         public int Coins {
-            get 
+            get
             {
                 return _coins;
-            } 
+            }
             set
             {
                 _coins = value;
-            } 
+            }
         }
 
         public string Name { get; private set; } = string.Empty;
@@ -37,13 +37,15 @@ namespace MiniVilles
         /// </summary>
         public abstract void BuyCard();
 
+
         /// <summary>
         /// Renvoie le score du joueur
         /// </summary>
         /// <returns>Le score du joueur</returns>
         public int Score()
         {
-            throw new NotImplementedException();
+            int ScoreCoin = _coins;
+            return ScoreCoin; 
         }
 
         /// <summary>
@@ -51,9 +53,17 @@ namespace MiniVilles
         /// </summary>
         /// <param name="lists">Couleurs à activer</param>
         /// <param name="dieFace">Numéro d'activation</param>
-        public void ApplyCardEffect(List<Colors> lists, int dieFace)
+        public void ApplyCardEffect(List<Colors> lists, int dieFace,Player opponent)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            
+            foreach(Cards card in cards)
+            {
+                if (lists.Contains(card.color)&& card.activationValue == dieFace)
+                {
+                    card.CardEffect(opponent);
+                }
+            }
         }
     }
 }
