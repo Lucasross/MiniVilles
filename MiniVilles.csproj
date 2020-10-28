@@ -4,11 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-<<<<<<< HEAD
-    <ProjectGuid>{E32DA37C-E274-4541-B524-FB655820CAED}</ProjectGuid>
-=======
-    <ProjectGuid>{C61C03FC-765F-44CB-858A-EB5EE420C96A}</ProjectGuid>
->>>>>>> f14219ed55b8f275185598aac6180b9dc380c884
+    <ProjectGuid>{5C117E21-F47A-4D66-9DF0-90E70EBAA55E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>MiniVilles</RootNamespace>
     <AssemblyName>MiniVilles</AssemblyName>

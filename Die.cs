@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniVilles
 {
-    class Die
+    public class Die
     {
         public int Face;
 
