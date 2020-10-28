@@ -18,11 +18,32 @@ namespace MiniVilles
         /// </summary>
         public override void BuyCard(Piles pile)
         {
-<<<<<<< HEAD
             Cards card = pile.PickCard();
-=======
+            int cost = card.cardCost;
+            int coins = this.Coins;
+            Console.Write("Vous avez actuellement {0}, et la carte coûte {1}.", coins, cost);
+            if (coins < cost)
+            {
+                Console.WriteLine("Vous ne pouvez pas l'acheter.");
+            }
+            else
+            {
+                Console.WriteLine("Souhaitez vous l'acheter ?");
+                Console.WriteLine("1 - Oui");
+                Console.WriteLine("2 - Non");
+                Console.WriteLine("Tapez le numéro devant votre choix, et pas autre chose !");
+                int choice = int.Parse(Console.ReadLine());
+                while (choice != 1 && choice != 2)
+                {
+                    Console.WriteLine("1 - Oui");
+                    Console.WriteLine("2 - Non");
+                    choice = int.Parse(Console.ReadLine());
+                }
+                if (choice == 1)
+                {
 
->>>>>>> 466674e7b2b77e7aff00ef51b73896230fa995b2
+                }
+            }
         }
     }
 }
