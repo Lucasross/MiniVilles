@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniVilles
 {
+    public enum Colors { Red,Green,Blue};
     public abstract class Cards
     {
         protected int activationValue;
@@ -21,6 +22,6 @@ namespace MiniVilles
             this.givenCoin = givenCoin;
         }
 
-        public abstract int CardEffect();
+        public abstract int CardEffect(Player player);
     }
 }
