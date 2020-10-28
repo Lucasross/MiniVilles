@@ -8,5 +8,16 @@ namespace MiniVilles
 {
     class Die
     {
+        public int Face;
+
+        public Die() { }
+
+        public int Throw()
+        {
+            Random random = new Random();
+            int result = random.Next(1, 7);
+            this.Face = result;
+            return result;
+        }
     }
 }
