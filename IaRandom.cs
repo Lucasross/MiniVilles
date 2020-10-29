@@ -16,9 +16,9 @@ namespace MiniVilles
         /// Gestion de l'achat chez une ia en mode aléatoire
         /// Se réfère a la classe parente : Player
         /// </summary>
-        public override void BuyCard()
+        public override void BuyCard(Piles pile)
         {
-
+            Console.WriteLine("nope");
         }
     }
 }

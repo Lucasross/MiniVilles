@@ -21,6 +21,14 @@ namespace MiniVilles
             playerA = new Human("Human");
             playerB = new IaRandom("Computer");
 
+            List<Cards> cards = new List<Cards>()
+            {
+                new CReceiveX(3, Colors.BLUE, 2, 5),
+                new CReceiveX(4, Colors.BLUE, 3, 6),
+            };
+
+            piles.Deck.AddRange(cards);
+
             RunGame();
         }
 

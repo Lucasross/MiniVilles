@@ -16,7 +16,10 @@ namespace MiniVilles
         {
             Random random = new Random();
             int result = random.Next(1, 7);
-            this.Face = result;
+            Face = result;
+            Console.WriteLine("+---+");
+            Console.WriteLine("| {0} |", Face);
+            Console.WriteLine("+---+");
             return result;
         }
     }

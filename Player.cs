@@ -59,7 +59,7 @@ namespace MiniVilles
             
             foreach(Cards card in cards)
             {
-                if (lists.Contains(card.color)&& card.activationValue == dieFace)
+                if (lists.Contains(card.Info.Color)&& card.Info.ActivationValue == dieFace)
                 {
                     card.CardEffect(opponent);
                 }

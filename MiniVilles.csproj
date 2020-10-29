@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Cards.cs" />
     <Compile Include="Colors.cs" />
+    <Compile Include="CReceiveDie.cs" />
+    <Compile Include="CReceiveX.cs" />
     <Compile Include="Die.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Human.cs" />

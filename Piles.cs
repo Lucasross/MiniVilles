@@ -8,7 +8,7 @@ namespace MiniVilles
 {
     public class Piles
     {
-        public List<Cards> Deck;
+        public List<Cards> Deck = new List<Cards>();
         public Piles()
         {
 
@@ -16,17 +16,14 @@ namespace MiniVilles
 
         public Cards PickCard()
         {
-            Cards PickedCard = Deck[Deck.Count-1];
+            var card = Deck[Deck.Count-1];
             Deck.RemoveAt(Deck.Count - 1);
-            return PickedCard;
+            return card;
         }
         public void Shuffle()
         {
             // pour trier chaque carte grace a une chaine de character Guid.NewGuid ...
             Deck = Deck.OrderBy(c => Guid.NewGuid()).ToList(); 
         }
-
-
-
     }
 }

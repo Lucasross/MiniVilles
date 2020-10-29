@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace MiniVilles
 {
-    class CReceiveX : Cards
+    public class CReceiveX : Cards
     {
-        public CReceiveX(int activationValue, string color, int cardCost, int givenCoin) : base(activationValue, color, cardCost, givenCoin)
+        public CReceiveX(int activationValue, Colors color, int cardCost, int givenCoin) : 
+                    base(activationValue, color, cardCost, givenCoin)
         {
         }
 
         public override int CardEffect(Player player)
         {
-            return this.givenCoin;
+            return Info.Gain;
         }
     }
 }

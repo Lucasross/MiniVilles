@@ -9,13 +9,13 @@ namespace MiniVilles
 {
     class CReceiveDie : Cards
     {
-        public CReceiveDie(int activationValue, string color, int cardCost, int givenCoin) : base(activationValue, color, cardCost, givenCoin)
+        public CReceiveDie(int activationValue, Colors color, int cardCost, int givenCoin) : base(activationValue, color, cardCost, givenCoin)
         {
         }
 
         public override int CardEffect(Player target)
         {
-            returnn - 1;
+            return -1;
         }
     }
 }
