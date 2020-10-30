@@ -53,17 +53,24 @@ namespace MiniVilles
         /// </summary>
         /// <param name="lists">Couleurs à activer</param>
         /// <param name="dieFace">Numéro d'activation</param>
-        public void ApplyCardEffect(List<Colors> lists, int dieFace,Player opponent)
-        {
-            //throw new NotImplementedException();
-            
+        public void ApplyCardEffect(List<Colors> lists, int dieFace, Player opponent)
+        {            
             foreach(Cards card in cards)
             {
                 if (lists.Contains(card.Info.Color)&& card.Info.ActivationValue == dieFace)
                 {
-                    card.CardEffect(opponent);
+                    int gainCoin = card.CardEffect(opponent);
+                    Coins += gainCoin;
+                    Console.WriteLine(" {0} remporte {1} pièces.", Name, gainCoin);
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            string str = string.Format("{0} possède {1} coins et {2} cartes :\n", Name, Coins, cards.Count);
+            cards.ForEach(c => str += c + "\n");
+            return str;
         }
     }
 }

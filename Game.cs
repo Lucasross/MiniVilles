@@ -1,33 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MiniVilles
 {
     public class Game
     {
-        private Die die;
-        private Piles piles;
+        private List<Die> dies = new List<Die>();
+        private Piles deck;
         private Player playerA;
         private Player playerB;
 
         public Game()
         {
-            die = new Die();
-            piles = new Piles();
-
-            playerA = new Human("Human");
-            playerB = new IaRandom("Computer");
-
-            List<Cards> cards = new List<Cards>()
-            {
-                new CReceiveX(3, Colors.BLUE, 2, 5),
-                new CReceiveX(4, Colors.BLUE, 3, 6),
-            };
-
-            piles.Deck.AddRange(cards);
+            dies.AddRange(new List<Die>() { new Die("mignon"), new Die("colérique") });
+            deck = new Piles();
+            playerA = new Human("Humain");
+            playerB = new IaWithALittleBrain("Jeremy");
 
             RunGame();
         }
@@ -37,18 +25,71 @@ namespace MiniVilles
             do
             {
                 TurnOf(playerA, playerB);
+                AskEndTurn(false);
                 TurnOf(playerB, playerA);
+                ResultTurn();
+                AskEndTurn(true);
             } while (!EndGame());
 
             DisplayWinner(GetWinner());
+            Console.ReadKey();
+        }
+
+        private void AskEndTurn(bool clear)
+        {
+            Console.WriteLine("Passez au tour suivant ?");
+            Console.ReadKey();
+            if(clear) Console.Clear();
+        }
+
+        private void ResultTurn()
+        {
+            Console.WriteLine("#########################################");
+            Console.WriteLine(playerA);
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine(playerB);
+            Console.WriteLine("#########################################");
         }
 
         private void TurnOf(Player player, Player opponent)
         {
-            int dieFace = die.Throw();
-            opponent.ApplyCardEffect(new List<Colors> { Colors.RED, Colors.BLUE }, dieFace, player);
-            player.ApplyCardEffect(new List<Colors> { Colors.GREEN, Colors.BLUE }, dieFace, opponent);
-            player.BuyCard(piles);
+            ThrowDies();
+            ApplyAllEffects(player, opponent);
+            CanBuyNewCard(player);
+        }
+
+        private void ThrowDies()
+        {
+            dies.ForEach(d => d.Throw());
+        }
+
+        private void CanBuyNewCard(Player player)
+        {
+            if (deck.pile.Count > 0)
+                player.BuyCard(deck);
+            else
+                Console.WriteLine("/!\\ La pile de cartes est vide /!\\");
+        }
+
+        private void ApplyAllEffects(Player player, Player opponent)
+        {
+            Console.WriteLine("########## EFFETS ##########");
+            foreach(Die die in dies)
+            {
+                Console.WriteLine("-- Effets du dé {0}. ({1}) --", die.name, die.Face);
+                opponent.ApplyCardEffect(new List<Colors> { Colors.RED, Colors.BLUE }, die.Face, player);
+                player.ApplyCardEffect(new List<Colors> { Colors.GREEN, Colors.BLUE }, die.Face, opponent);
+            }
+
+            int dieSum = 0;
+            dies.ForEach(d => dieSum += d.Face);
+            Console.WriteLine("-- Effets de la somme des dés. ({0}) --", dieSum);
+            opponent.ApplyCardEffect(new List<Colors> { Colors.RED, Colors.BLUE }, dieSum, player);
+            player.ApplyCardEffect(new List<Colors> { Colors.GREEN, Colors.BLUE }, dieSum, opponent);
+
+
+
+            Console.WriteLine("########## END EFFECTS ##########");
         }
 
         /// <summary>
@@ -82,7 +123,7 @@ namespace MiniVilles
         /// <returns>Vrai si la partie doit se terminer</returns>
         private bool EndGame()
         {
-            return (playerA.Coins >= 20 || playerB.Coins >= 20);
+            return playerA.Coins >= 20 || playerB.Coins >= 20;
         }
     }
 }

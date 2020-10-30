@@ -9,13 +9,14 @@ namespace MiniVilles
 {
     public class CReceiveX : Cards
     {
-        public CReceiveX(int activationValue, Colors color, int cardCost, int givenCoin) : 
-                    base(activationValue, color, cardCost, givenCoin)
+        public CReceiveX(int activationValue, Colors color, string name, int gain, int cost) : 
+                    base(activationValue, color, name, gain, cost, string.Format("Recevez {0} pièce.", gain))
         {
         }
 
         public override int CardEffect(Player player)
         {
+            Console.Write("L'effet \"{0}\" est activé.", Info.Effect);
             return Info.Gain;
         }
     }

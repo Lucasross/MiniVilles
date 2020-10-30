@@ -21,7 +21,8 @@ namespace MiniVilles
             Cards card = pile.PickCard();
             int cost = card.Info.Cost;
             int coins = Coins;
-            Console.Write("Vous avez actuellement {0}, et la carte coûte {1}.", coins, cost);
+            Console.WriteLine("Vous piochez la carte : " + card);
+            Console.WriteLine("Vous avez actuellement {0} coins, et la carte coûte {1}.", coins, cost);
 
             if (coins < cost)
             {
@@ -47,6 +48,7 @@ namespace MiniVilles
                     case "2":
                     case "non":
                         Console.WriteLine("Ok je la remets dans le paquet.");
+                        pile.ReplaceCard(card);
                         break;
                     default:
                         success = false;
@@ -57,7 +59,6 @@ namespace MiniVilles
 
         private void BuyCardProcess(Piles pile, Cards card)
         {
-            pile.Deck.Remove(card);
             cards.Add(card);
             Coins -= card.Info.Cost;
             Console.WriteLine("Il vous reste {0} coins.", Coins);
