@@ -34,8 +34,7 @@ Les cartes avec une valeurs de 4, 3 et 7 seront activé. (Tout en respectant les
 # Nouvelles cartes
 [7] BLUE - Cinéma : Recevez 4 pièce. - 3    
 [8] BLUE - Usine : Recevez 3 pièce. - 1                        
-[9] RED - Foire : Recevez 3 pièce du joueur qui à lancé le dé - 1
-
+[9] RED - Foire : Recevez 3 pièce du joueur qui à lancé le dé - 1  
 [10] GREEN - Piscine : Recevez 5 pièce. - 4     
 [11] GREEN - Centre commercial : Recevez 6 pièce. - 4    
 [12] GREEN - Festival : Recevez 10 pièce. - 6               
