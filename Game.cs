@@ -10,18 +10,23 @@ namespace MiniVilles
         private Player playerA;
         private Player playerB;
 
+        public int MaxCoin;
+        public bool Difficulty;
+
+
         public Game()
         {
             dies.AddRange(new List<Die>() { new Die("mignon"), new Die("colérique") });
             deck = new Piles();
             playerA = new Human("Humain");
             playerB = new IaWithALittleBrain("Jeremy");
-
             RunGame();
         }
 
         private void RunGame()
         {
+            AskMaxCoin();
+            AskDifficulty();
             do
             {
                 TurnOf(playerA, playerB);
@@ -86,9 +91,6 @@ namespace MiniVilles
             Console.WriteLine("-- Effets de la somme des dés. ({0}) --", dieSum);
             opponent.ApplyCardEffect(new List<Colors> { Colors.RED, Colors.BLUE }, dieSum, player);
             player.ApplyCardEffect(new List<Colors> { Colors.GREEN, Colors.BLUE }, dieSum, opponent);
-
-
-
             Console.WriteLine("########## END EFFECTS ##########");
         }
 
@@ -107,14 +109,69 @@ namespace MiniVilles
         /// <param name="player"></param>
         private Player GetWinner()
         {
-            if (playerA.Coins >= 20)
+            if (Difficulty == false)
             {
-                return playerA;
+                if (playerA.Coins >= MaxCoin)
+                {
+                    return playerA;
+                }
+                else
+                {
+                    return playerB;
+                }
             }
             else
             {
-                return playerB;
+                bool red = false;
+                bool green = false;
+                bool blue = false;
+                foreach (Cards a in playerA.cards)
+                {
+                    if (a.Info.Color == Colors.BLUE)
+                    {
+                        blue = true;
+                    }
+                    else if (a.Info.Color == Colors.GREEN)
+                    {
+                        green = true;
+                    }
+                    else if (a.Info.Color == Colors.RED)
+                    {
+                        red = true;
+                    }
+                }
+                bool Bred = false;
+                bool Bgreen = false;
+                bool Bblue = false;
+                foreach (Cards b in playerB.cards)
+                {
+                    if (b.Info.Color == Colors.BLUE)
+                    {
+                        Bblue = true;
+                    }
+                    else if (b.Info.Color == Colors.GREEN)
+                    {
+                        Bgreen = true;
+                    }
+                    else if (b.Info.Color == Colors.RED)
+                    {
+                        Bred = true;
+                    }
+                }
+
+                if (red == true && blue == true && green == true&& playerA.Coins >= MaxCoin)
+                {
+                    return playerA;
+                }
+                else
+                {
+                    return playerB;
+                }
+
+
+
             }
+
         }
 
         /// <summary>
@@ -123,7 +180,98 @@ namespace MiniVilles
         /// <returns>Vrai si la partie doit se terminer</returns>
         private bool EndGame()
         {
-            return playerA.Coins >= 20 || playerB.Coins >= 20;
+            if (Difficulty == false)
+            {
+                return playerA.Coins >= MaxCoin || playerB.Coins >= MaxCoin;
+            }
+            else
+            {
+                bool red =false;
+                bool green =false;
+                bool blue =false;
+                foreach (Cards a in playerA.cards)
+                {
+                    if(a.Info.Color==Colors.BLUE)
+                    {
+                        blue = true;
+                    }
+                    else if (a.Info.Color == Colors.GREEN)
+                    {
+                        green = true;
+                    }
+                    else if (a.Info.Color == Colors.RED)
+                    {
+                        red = true;
+                    }
+                }
+                bool Bred = false;
+                bool Bgreen = false;
+                bool Bblue = false;
+                foreach (Cards b in playerB.cards)
+                {
+                    if (b.Info.Color == Colors.BLUE)
+                    {
+                        Bblue = true;
+                    }
+                    else if (b.Info.Color == Colors.GREEN)
+                    {
+                        Bgreen = true;
+                    }
+                    else if (b.Info.Color == Colors.RED)
+                    {
+                        Bred = true;
+                    }
+                }
+                if (red == true && blue == true && green == true|| Bred ==true && Bblue == true && Bgreen == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+
+
+        }
+        public int AskMaxCoin()
+        {
+            AskMaxCoin:
+            MaxCoin = 0;
+            Console.WriteLine("Choissisez votre nombre de Coin Max, Ecrivez 10 , 20 ou 30 ");
+            MaxCoin = Convert.ToInt32(Console.ReadLine());
+            if (MaxCoin == 10 || MaxCoin ==20||MaxCoin == 30)
+            {
+                return MaxCoin;
+            }
+            else
+            {
+                Console.WriteLine("ERREUR La Valeur saisie n'est pas correct");
+                goto AskMaxCoin;
+            }
+        }
+        public void AskDifficulty()
+        {
+            NewChoise:
+            String choix;
+            Console.WriteLine("Voulez vous une difficultez plus elever ? OUI ou NON ");
+            Console.WriteLine("Cette difficulter permet de finir la partie quand le joeur a obtenue le nombre de coin max mais egalement uen carte de chaque");
+            Console.WriteLine(" OUI ou NON ");
+            choix = Console.ReadLine();
+            if (choix == "OUI")
+            {
+                Difficulty = true;
+            }
+            else if (choix =="NON")
+            {
+                Difficulty = false;
+            }
+            else
+            {
+                Console.WriteLine("ERREUR La Valeur saisie n'est pas correct");
+                goto NewChoise;
+            }
         }
     }
 }
