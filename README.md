@@ -57,3 +57,19 @@ if (card.Info.Color == Colors.BLUE)
     return true;
 return cards.Find(c => c.Info.ActivationValue == activationValue) == null;
 ```
+
+# Choix des amelioration 
+1. Jouer avec deux dés et ajouter des cartes qui s’activent entre 7 et 12.
+	--augmente la vitesse des parties donc rajoute du gameplay ===> Lucas et Guillaume 
+
+2. Modifier certaines cartes pour qu’elles puissent s’activer pour deux valeurs de dé successives (comme la boulangerie dans le jeu initial).
+3. Proposer une stratégie pour l’IA qui ne repose pas uniquement sur un choix aléatoire.
+	--Rajoute du gameplay rapidement avec le script IaWithALittleBrain.CS  ===> Lucas et Guillaume 
+
+4. XXXXXX Proposer ce jeu dans une fenêtre graphique. XXXXXX
+	--Trops complexe à faire en form 
+	
+5. Proposer un choix sur les conditions de fin de partie (20 pièces pour une partie standard,10 pour une partie rapide et30 pour une version longue). Ajouter également une
+condition de fin de partie "expert" pour laquelle la partie prendra fin uniquement
+lorsqu’un joueur aura en sa possession un exemplaire de chaque carte et20 pièces.
+	--Faciliter à mettre en place et rajout de gameplay efficace ===> Tristan
