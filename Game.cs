@@ -239,7 +239,7 @@ namespace MiniVilles
         {
             AskMaxCoin:
             MaxCoin = 0;
-            Console.WriteLine("Choissisez votre nombre de Coin Max, Ecrivez 10 , 20 ou 30 ");
+            Console.WriteLine("Choissisez votre nombre de Coin Max Ecrivez 10 , 20 ou 30 ");
             MaxCoin = Convert.ToInt32(Console.ReadLine());
             if (MaxCoin == 10 || MaxCoin ==20||MaxCoin == 30)
             {
@@ -256,7 +256,7 @@ namespace MiniVilles
             NewChoise:
             String choix;
             Console.WriteLine("Voulez vous une difficultez plus elever ? OUI ou NON ");
-            Console.WriteLine("Cette difficulter permet de finir la partie quand le joeur a obtenue le nombre de coin max mais egalement uen carte de chaque");
+            Console.WriteLine("Permet de finir la partie quand le joeur a obtenue le nombre de coin max mais egalement une carte de chaque");
             Console.WriteLine(" OUI ou NON ");
             choix = Console.ReadLine();
             if (choix == "OUI")
